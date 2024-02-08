@@ -1,4 +1,4 @@
-# Makefile for building HelloWorld.cpp
+# Makefile for building HelloWorld.cpp on GitHub Actions
 
 # Compiler
 CXX := g++
@@ -13,7 +13,7 @@ SRCS := HelloWorld.cpp
 OBJS := $(SRCS:.cpp=.o)
 
 # Target executable
-TARGET := HelloWorld.exe
+TARGET := HelloWorld
 
 # Default target
 all: $(TARGET)
