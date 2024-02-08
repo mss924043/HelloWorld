@@ -20,12 +20,12 @@ all: $(TARGET)
 
 # Rule to compile source files
 %.o: %.cpp
-\t$(CXX) $(CXXFLAGS) -c $< -o $@
+    $(CXX) $(CXXFLAGS) -c $< -o $@
 
 # Rule to link object files into the target executable
 $(TARGET): $(OBJS)
-\t$(CXX) $(OBJS) -o $(TARGET)
+    $(CXX) $(OBJS) -o $(TARGET)
 
 # Clean rule
 clean:
-\trm -f $(OBJS) $(TARGET)
+    rm -f $(OBJS) $(TARGET)
