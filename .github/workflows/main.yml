@@ -1,5 +1,4 @@
-name: C++ Build and Publish
-
+name: Build and Publish
 on:
   push:
     branches:
@@ -13,23 +12,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
+    - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Install build tools
-      run: sudo apt-get update && sudo apt-get install -y build-essential
-
-    - name: Create binaries directory
-      run: mkdir build
-
-    - name: Build with GNU Make
-      run: make
-
-    - name: Move binaries to directory
-      run: mv path/to/your/executables/* HelloWoeld.exe build/
-
-    - name: Publish binaries
+    - name: Build and Publish
+      run: |
+        make
+        mkdir -p bin
+        mv HelloWorld.exe bin/
+      
+    - name: Upload Artifact
       uses: actions/upload-artifact@v2
       with:
-        name: binaries
-        path: build/
+        name: HelloWorld
+        path: bin/HelloWorld.exe
