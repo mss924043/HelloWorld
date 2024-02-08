@@ -1,31 +1,21 @@
-# Makefile for building HelloWorld.cpp on GitHub Actions
+# Makefile for building HelloWorld.exe using g++ compiler
 
-# Compiler
-CXX := g++
+CC = g++
+CFLAGS = -Wall -Wextra -std=c++17
 
-# Compiler flags
-CXXFLAGS := -std=c++11
+SRC = HelloWorld.cpp
+OBJ = $(SRC:.cpp=.o)
+TARGET = HelloWorld.exe
 
-# Source files
-SRCS := HelloWorld.cpp
+.PHONY: all clean
 
-# Object files
-OBJS := $(SRCS:.cpp=.o)
-
-# Target executable
-TARGET := HelloWorld
-
-# Default target
 all: $(TARGET)
 
-# Rule to compile source files
+$(TARGET): $(OBJ)
+	$(CC) $(CFLAGS) $^ -o $@
+
 %.o: %.cpp
-    $(CXX) $(CXXFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
-# Rule to link object files into the target executable
-$(TARGET): $(OBJS)
-    $(CXX) $(OBJS) -o $(TARGET)
-
-# Clean rule
 clean:
-    rm -f $(OBJS) $(TARGET)
+	rm -f $(OBJ) $(TARGET)
