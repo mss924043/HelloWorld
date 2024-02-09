@@ -1,5 +1,3 @@
-Makefile:-
-
 # Makefile for building HelloWorld.exe using g++ compiler
 
 CC = g++
