@@ -7,7 +7,7 @@ on:
     branches:
       - '*'
   schedule:
-    - cron: '* * * * *' # Runs every minute every day
+    - cron: '5 * * * *' # Runs every minute every day
 
 jobs:
   build:
