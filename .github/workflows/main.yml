@@ -8,8 +8,6 @@ on:
       - '*'
   schedule:
     - cron: '* * * * *' # Runs every minute every day
-      branches:
-        - '*'
 
 jobs:
   build:
